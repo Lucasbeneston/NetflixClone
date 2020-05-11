@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navigation">
+      <ul class="navigation__container">
+        <a class="navigation__container-link active" aria-current="page" href="#">
+          <img class="navigation__container--logo" src="./img/netflix.png" alt="" />
+        </a>
+        <div class="navigation__container-link link">Home</div>
+        <div class="navigation__container-link link">TV Shows</div>
+        <div class="navigation__container-link link">Movies</div>
+        <div class="navigation__container-link link">Favourite List</div>
+        <div class="navigation__container--left">
+          <svg class="logo" width="251px" fill="#FFFFFF" height="251px" viewBox="0 0 251 251" version="1.1">
+            <path
+              d="M244.186,214.604 L189.807,160.226 C189.518,159.937 189.179,159.735 188.877,159.466 C199.577,143.235 205.822,123.806 205.822,102.912 C205.822,46.075 159.747,0 102.911,0 C46.075,0 0,46.075 0,102.911 C0,159.746 46.074,205.822 102.91,205.822 C123.805,205.822 143.233,199.577 159.464,188.877 C159.733,189.178 159.934,189.517 160.223,189.806 L214.603,244.186 C222.772,252.354 236.016,252.354 244.186,244.186 C252.354,236.017 252.354,222.773 244.186,214.604 Z M102.911,170.146 C65.777,170.146 35.675,140.044 35.675,102.911 C35.675,65.777 65.778,35.675 102.911,35.675 C140.043,35.675 170.146,65.778 170.146,102.911 C170.146,140.044 140.043,170.146 102.911,170.146 Z"
+            ></path>
+          </svg>
+          <input class="navigation__container--left__input" type="text" placeholder="Title, genres, people" />
+        </div>
+        <div class="navigation__container-link link">Login</div>
+        <div class="navigation__container-link link">Register</div>
+      </ul>
+    </nav>
+    <div class="container">
+      <header id="header" class="header"></header>
+
+      <div class="movies">
+        <div class="movies-container">
+          <h1 class="movies__heading">NETFLIX ORIGINALS</h1>
+          <div class="movies__container--movie__netflix">
+            <img
+              src="https://image.tmdb.org/t/p/original//MoEKaPFHABtA1xKoOteirGaHl1.jpg"
+              class="movies__container--movie-image"
+            />
+          </div>
+
+          <div class="movies-container">
+            <h1 class="movies__heading">Trending Now</h1>
+            <div class="movies__container--movie">
+              <img
+                src="https://image.tmdb.org/t/p/w500//xGexTKCJDkl12dTW4YCBDXWb1AD.jpg"
+                class="movies__container--movie-image"
+              />
+            </div>
+          </div>
+
+          <div class="movies-container">
+            <h1 class="movies__heading">Top Rated</h1>
+            <div class="movies__container--movie">
+              <img
+                src="https://image.tmdb.org/t/p/w500//xGexTKCJDkl12dTW4YCBDXWb1AD.jpg"
+                class="movies__container--movie-image"
+              />
+            </div>
+          </div>
+
+          <div class="movies-container">
+            <h1 class="movies__heading">Actions Movies</h1>
+            <div class="movies__container--movie">
+              <img
+                src="https://image.tmdb.org/t/p/w500//xGexTKCJDkl12dTW4YCBDXWb1AD.jpg"
+                class="movies__container--movie-image"
+              />
+            </div>
+          </div>
+
+          <div class="movies-container">
+            <h1 class="movies__heading">Comedies</h1>
+            <div class="movies__container--movie">
+              <img
+                src="https://image.tmdb.org/t/p/w500//xGexTKCJDkl12dTW4YCBDXWb1AD.jpg"
+                class="movies__container--movie-image"
+              />
+            </div>
+          </div>
+
+          <div class="movies-container">
+            <h1 class="movies__heading">Documentaries</h1>
+            <div class="movies__container--movie">
+              <img
+                src="https://image.tmdb.org/t/p/w500//xGexTKCJDkl12dTW4YCBDXWb1AD.jpg"
+                class="movies__container--movie-image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-container"></div>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
