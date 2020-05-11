@@ -1,23 +1,22 @@
-const APÎ_URL = "https://api.themoviedb.org/3/movie/";
-const API_KEY = "2997c5290abfb556adf35db19e36cc28";
+const API_URL = "https://api.themoviedb.org/3/movie/";
+const API_KEY = "7570342a0ddc01d14364f312877712b3";
 
-//1
-export function fetchMovie(movieId, cb) {
-  const url = ``;
+//1 
+// export function fetchMovie(movieId, cb) {
+//   // https://api.themoviedb.org/3/movie/550?api_key=7570342a0ddc01d14364f312877712b3
+//   const url = `${API_URL}${movieId}?api_key=${API_KEY}`;
+//     var xhr_object = new XMLHttpRequest();
+//     xhr_object.open("GET", url, false);
+//     xhr_object.send(null);
 
-    var xhr_object = new XMLHttpRequest();
-    xhr_object.open("GET", url, false);
-    xhr_object.send(null);
+//     if (xhr_object.readyState == 4) {
+//       return cb(JSON.parse(xhr_object.responseText));
+//     }
+// }
 
-    if (xhr_object.readyState == 4) {
-      return cb(JSON.parse(xhr_object.responseText));
-    }
-  
-}
-
-//2
-// export default function fetchMovie(movieId) {
-//   const url = ``;
+//2 ajout "promise"
+// export function fetchMovie(movieId) {
+//   const url = `${API_URL}${movieId}?api_key=${API_KEY}`;
 
 //   return new Promise((resolve, reject) => {
 //     var xhr_object = new XMLHttpRequest();
@@ -30,8 +29,10 @@ export function fetchMovie(movieId, cb) {
 //   });
 // }
 
-// export default function fetchMovie(movieId) {
-//   const url = ``;
+
+//2BIS ajout "fetch()"
+// export function fetchMovie(movieId) {
+//   const url = `${API_URL}${movieId}?api_key=${API_KEY}`;
 //   return fetch(url).then(res => {
 //     return res.json()
 //   }).then(movie => {
@@ -39,18 +40,20 @@ export function fetchMovie(movieId, cb) {
 //   })
 // }
 
-//3
-// export default async function fetchMovie(movieId) {
-//   const url = ``;
-//   let res = await fetch(url);
-//   let movie = await res.json();
-//   console.log(movie);
-//   return movie;
-// }
 
-export function fetchNetflixOriginals() {
-  const url = `/discover/tv?api_key=${API_KEY}&with_networks=213`;
+//3 Ajout async / await
+export async function fetchMovie(movieId) {
+  // https://api.themoviedb.org/3/movie/550?api_key=7570342a0ddc01d14364f312877712b3
+  const url = `${API_URL}${movieId}?api_key=${API_KEY}`;
+  let res = await fetch(url);
+  let movie = await res.json();
+  // console.log(movie);
+  return movie;
 }
+
+// export function fetchNetflixOriginals() {
+//   const url = `/discover/tv?api_key=${API_KEY}&with_networks=213`;
+// }
 
 export function fetchTrending() {}
 
