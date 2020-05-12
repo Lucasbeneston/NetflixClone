@@ -124,3 +124,12 @@
   display: flex;
   overflow-y: scroll;
 }
+
+#movies-row-trending{
+  display: flex;
+  overflow-y: scroll;
+}
+
+.movies__container--movie__trending{
+height: 17.5vh;
+}

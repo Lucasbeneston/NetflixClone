@@ -1,8 +1,11 @@
 import { fetchMovie } from "./apiService.js";
 import { fetchNetflixOriginals } from "./apiService.js";
+import { fetchTrending } from "./apiService.js";
+
 
 import Header from "./components/Header.mjs";
-import Section from "./components/Section.mjs";
+import {SectionNetflix} from "./components/Section.mjs";
+import {SectionTrending} from "./components/Section.mjs";
 
 // (() => {
 //   //Callback
@@ -41,8 +44,20 @@ import Section from "./components/Section.mjs";
 
 (async () => {
   let movie = await fetchNetflixOriginals();
-  for (let i = 1; i < movie.results.length; i++) {
+  for (let i = 0; i < movie.results.length; i++) {
     let netflixRow = document.querySelector('#movies-row-netflix');
-    netflixRow.innerHTML += Section(movie.results[i]);
+    netflixRow.innerHTML += SectionNetflix(movie.results[i]);
   }
 })();
+
+(async () => {
+  let movie = await fetchTrending();
+  for (let i = 0; i < movie.results.length; i++) {
+    let netflixRow = document.querySelector('#movies-row-trending');
+    netflixRow.innerHTML += SectionTrending(movie.results[i]);
+  }
+})();
+
+// console.log(fetchTrending())
+
+

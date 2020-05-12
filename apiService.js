@@ -57,7 +57,13 @@ export async function fetchNetflixOriginals() {
   return movie;
 }
 
-export function fetchTrending() {}
+export async function fetchTrending() {
+    // https://developers.themoviedb.org/3/discover/tv?api_key=
+    const url = `${API_URL}trending/movie/week?api_key=${API_KEY}`;
+    let res = await fetch(url);
+    let movie = await res.json();
+    return movie;
+}
 
 export function fetchTopRated() {}
 
