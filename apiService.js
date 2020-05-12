@@ -41,7 +41,6 @@ const API_KEY = "7570342a0ddc01d14364f312877712b3";
 
 //3 Ajout async / await
 export async function fetchMovie(movieId) {
-  // https://api.themoviedb.org/3/movie/550?api_key=7570342a0ddc01d14364f312877712b3
   const url = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
   let res = await fetch(url);
   let movie = await res.json();
@@ -50,7 +49,6 @@ export async function fetchMovie(movieId) {
 }
 
 export async function fetchNetflixOriginals() {
-  // https://developers.themoviedb.org/3/discover/tv?api_key=
   const url = `${API_URL}discover/tv?api_key=${API_KEY}&with_networks=213`;
   let res = await fetch(url);
   let movie = await res.json();
@@ -58,13 +56,17 @@ export async function fetchNetflixOriginals() {
 }
 
 export async function fetchTrending() {
-    // https://developers.themoviedb.org/3/discover/tv?api_key=
     const url = `${API_URL}trending/movie/week?api_key=${API_KEY}`;
     let res = await fetch(url);
     let movie = await res.json();
     return movie;
 }
 
-export function fetchTopRated() {}
+export async function fetchTopRated() {
+  const url = `${API_URL}movie/top_rated?api_key=${API_KEY}`;
+  let res = await fetch(url);
+  let movie = await res.json();
+  return movie;
+}
 
 export function fetchByGenreMovies(genre) {}
