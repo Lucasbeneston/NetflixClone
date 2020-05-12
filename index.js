@@ -3,7 +3,8 @@ import { fetchNetflixOriginals } from "./apiService.js";
 import { fetchTrending } from "./apiService.js";
 import { fetchTopRated } from "./apiService.js";
 import { fetchByGenreMovies } from "./apiService.js";
-import { genres } from "./data.js"
+import { genres } from "./data.js";
+import { fetchModal } from "./apiService.js";
 
 
 import Header from "./components/Header.mjs";
@@ -11,6 +12,7 @@ import {SectionNetflix} from "./components/Section.mjs";
 import {SectionTrending} from "./components/Section.mjs";
 import {SectionTopRated} from "./components/Section.mjs";
 import {SectionGenre} from "./components/Section.mjs";
+import Modal from './components/Modal.mjs';
 
 (async () => {
   let movie = await fetchMovie(157336);
@@ -81,6 +83,14 @@ import {SectionGenre} from "./components/Section.mjs";
       actionRow.innerHTML += SectionGenre(movie.results[i]);
     }
   }
+})();
+
+
+(async () => {
+  let movie = await fetchModal(176);
+
+  document.getElementById("modal-netflix").innerHTML = Modal(movie);
+  document.getElementById("modal-netflix").style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`;
 })();
 
 

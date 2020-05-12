@@ -7,9 +7,11 @@ export default function Header(props) {
             </button>
     
             <button class="header__container-btnFavouriteList">
-              Favourite List
+              My List
             </button>
             <p class="header__container-overview">${props.overview}</p>
           </div>
         `;
 }
+
+
