@@ -1,6 +1,66 @@
 const API_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "7570342a0ddc01d14364f312877712b3";
 
+export async function fetchMovie(movieId) {
+  const url = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
+  let res = await fetch(url);
+  let movie = await res.json();
+  return movie;
+}
+
+export async function fetchNetflixOriginals() {
+  const url = `${API_URL}discover/tv?api_key=${API_KEY}&with_networks=213`;
+  let res = await fetch(url);
+  let movie = await res.json();
+  return movie;
+}
+
+export async function fetchTrending() {
+    const url = `${API_URL}trending/movie/week?api_key=${API_KEY}`;
+    let res = await fetch(url);
+    let movie = await res.json();
+    return movie;
+}
+
+export async function fetchTopRated() {
+  const url = `${API_URL}movie/top_rated?api_key=${API_KEY}`;
+  let res = await fetch(url);
+  let movie = await res.json();
+  return movie;
+}
+
+export async function fetchByGenreMovies(genre) {
+  const url = `${API_URL}discover/tv?api_key=${API_KEY}&with_genres=${genre}`;
+  let res = await fetch(url);
+  let movie = await res.json();
+  return movie;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //1
 // export function fetchMovie(movieId, cb) {
 //   // https://api.themoviedb.org/3/movie/550?api_key=7570342a0ddc01d14364f312877712b3
@@ -39,34 +99,3 @@ const API_KEY = "7570342a0ddc01d14364f312877712b3";
 //   })
 // }
 
-//3 Ajout async / await
-export async function fetchMovie(movieId) {
-  const url = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
-  let res = await fetch(url);
-  let movie = await res.json();
-  // console.log(movie);
-  return movie;
-}
-
-export async function fetchNetflixOriginals() {
-  const url = `${API_URL}discover/tv?api_key=${API_KEY}&with_networks=213`;
-  let res = await fetch(url);
-  let movie = await res.json();
-  return movie;
-}
-
-export async function fetchTrending() {
-    const url = `${API_URL}trending/movie/week?api_key=${API_KEY}`;
-    let res = await fetch(url);
-    let movie = await res.json();
-    return movie;
-}
-
-export async function fetchTopRated() {
-  const url = `${API_URL}movie/top_rated?api_key=${API_KEY}`;
-  let res = await fetch(url);
-  let movie = await res.json();
-  return movie;
-}
-
-export function fetchByGenreMovies(genre) {}

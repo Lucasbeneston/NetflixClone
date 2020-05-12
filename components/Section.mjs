@@ -26,3 +26,14 @@ export function SectionTopRated(props) {
     </div>
         `;
 }
+
+export function SectionGenre(props) {
+    return `
+    <div class="movies__container--movie__genre">
+        <img
+            src="https://image.tmdb.org/t/p/w500/${props.backdrop_path}"
+            class="movies__container--movie-image"
+        />
+    </div>
+        `;
+}

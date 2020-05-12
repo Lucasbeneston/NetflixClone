@@ -1,4 +1,4 @@
-const genres = [
+export const genres = [
     {
       'id': 28,
       'name': 'Action'
@@ -77,9 +77,9 @@ const genres = [
     }
   ]
   
-  const networks =[
-    {
-      'id': 213,
-      'name': netflix
-    }
-  ]
+  // const networks =[
+  //   {
+  //     'id': 213,
+  //     'name': netflix
+  //   }
+  // ]

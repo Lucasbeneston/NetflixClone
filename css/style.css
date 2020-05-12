@@ -301,12 +301,12 @@ html {
   }
 }
 
-#movies-row-netflix, #movies-row-trending, #movies-row-toprated {
+#movies-row-netflix, #movies-row-trending, #movies-row-toprated, #movies-row-action, #movies-row-comedy, #movies-row-documentary {
   display: flex;
   overflow-y: scroll;
 }
 
-.movies__container--movie__trending, .movies__container--movie__toprated {
+.movies__container--movie__trending, .movies__container--movie__toprated, .movies__container--movie__genre {
   height: 15rem;
 }
 
