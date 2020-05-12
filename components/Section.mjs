@@ -15,3 +15,14 @@ export function SectionTrending(props) {
         </div>
           `;
 }
+
+export function SectionTopRated(props) {
+    return `
+    <div class="movies__container--movie__toprated">
+        <img
+            src="https://image.tmdb.org/t/p/w500/${props.backdrop_path}"
+            class="movies__container--movie-image"
+        />
+    </div>
+        `;
+}

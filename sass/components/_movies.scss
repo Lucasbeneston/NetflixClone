@@ -120,16 +120,11 @@
   }
 }
 
-#movies-row-netflix{
+#movies-row-netflix, #movies-row-trending, #movies-row-toprated{
   display: flex;
   overflow-y: scroll;
 }
 
-#movies-row-trending{
-  display: flex;
-  overflow-y: scroll;
-}
-
-.movies__container--movie__trending{
-height: 17.5vh;
+.movies__container--movie__trending, .movies__container--movie__toprated {
+  height: 15rem;
 }

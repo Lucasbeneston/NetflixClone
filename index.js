@@ -1,11 +1,13 @@
 import { fetchMovie } from "./apiService.js";
 import { fetchNetflixOriginals } from "./apiService.js";
 import { fetchTrending } from "./apiService.js";
+import { fetchTopRated } from "./apiService.js";
 
 
 import Header from "./components/Header.mjs";
 import {SectionNetflix} from "./components/Section.mjs";
 import {SectionTrending} from "./components/Section.mjs";
+import {SectionTopRated} from "./components/Section.mjs";
 
 // (() => {
 //   //Callback
@@ -59,5 +61,14 @@ import {SectionTrending} from "./components/Section.mjs";
 })();
 
 // console.log(fetchTrending())
+
+
+(async () => {
+  let movie = await fetchTopRated();
+  for (let i = 0; i < movie.results.length; i++) {
+    let netflixRow = document.querySelector("#movies-row-toprated");
+    netflixRow.innerHTML += SectionTopRated(movie.results[i]);
+  }
+})();
 
 
