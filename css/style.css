@@ -301,4 +301,9 @@ html {
   }
 }
 
+#movies-row-netflix {
+  display: flex;
+  overflow-y: scroll;
+}
+
 /*# sourceMappingURL=style.css.map */
