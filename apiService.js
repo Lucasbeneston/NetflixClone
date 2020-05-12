@@ -1,7 +1,7 @@
-const API_URL = "https://api.themoviedb.org/3/movie/";
+const API_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "7570342a0ddc01d14364f312877712b3";
 
-//1 
+//1
 // export function fetchMovie(movieId, cb) {
 //   // https://api.themoviedb.org/3/movie/550?api_key=7570342a0ddc01d14364f312877712b3
 //   const url = `${API_URL}${movieId}?api_key=${API_KEY}`;
@@ -29,7 +29,6 @@ const API_KEY = "7570342a0ddc01d14364f312877712b3";
 //   });
 // }
 
-
 //2BIS ajout "fetch()"
 // export function fetchMovie(movieId) {
 //   const url = `${API_URL}${movieId}?api_key=${API_KEY}`;
@@ -40,20 +39,23 @@ const API_KEY = "7570342a0ddc01d14364f312877712b3";
 //   })
 // }
 
-
 //3 Ajout async / await
 export async function fetchMovie(movieId) {
   // https://api.themoviedb.org/3/movie/550?api_key=7570342a0ddc01d14364f312877712b3
-  const url = `${API_URL}${movieId}?api_key=${API_KEY}`;
+  const url = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
   let res = await fetch(url);
   let movie = await res.json();
   // console.log(movie);
   return movie;
 }
 
-// export function fetchNetflixOriginals() {
-//   const url = `/discover/tv?api_key=${API_KEY}&with_networks=213`;
-// }
+export async function fetchNetflixOriginals() {
+  // https://developers.themoviedb.org/3/discover/tv?api_key=
+  const url = `${API_URL}discover/tv?api_key=${API_KEY}&with_networks=213`;
+  let res = await fetch(url);
+  let movie = await res.json();
+  return movie;
+}
 
 export function fetchTrending() {}
 
