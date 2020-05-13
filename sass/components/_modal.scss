@@ -1,9 +1,9 @@
 .modal {
     background-color: $color-background;
     display: flex;
-    height: 65rem;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: right;
 
     @include media(phone) {
       height: 50rem;
@@ -11,10 +11,10 @@
   
     &__container {
         margin-top: -4rem;
-      padding: 7.5rem 0;
+      padding: 7.5vh 0;
       background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.5) 100%);
       @include media(phone) {
-        padding-top: 10rem;
+        padding: 5vh 0;
       }
       padding-left: 4.5rem;
       color: #fff;

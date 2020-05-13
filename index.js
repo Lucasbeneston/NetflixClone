@@ -6,13 +6,13 @@ import { fetchByGenreMovies } from "./apiService.js";
 import { genres } from "./data.js";
 import { fetchModal } from "./apiService.js";
 
-
 import Header from "./components/Header.mjs";
 import {SectionNetflix} from "./components/Section.mjs";
 import {SectionTrending} from "./components/Section.mjs";
 import {SectionTopRated} from "./components/Section.mjs";
 import {SectionGenre} from "./components/Section.mjs";
 import Modal from './components/Modal.mjs';
+
 
 (async () => {
   let movie = await fetchMovie(157336);
@@ -29,7 +29,9 @@ import Modal from './components/Modal.mjs';
       netflixRow.innerHTML += SectionNetflix(movie.results[i]);
     }
   }
+  console.log(movie)
 })();
+
 
 (async () => {
   let movie = await fetchTrending();
@@ -87,8 +89,7 @@ import Modal from './components/Modal.mjs';
 
 
 (async () => {
-  let movie = await fetchModal(176);
-
+  let movie = await fetchModal(13); // Comment utiliser l'id du film clické ?
   document.getElementById("modal-netflix").innerHTML = Modal(movie);
   document.getElementById("modal-netflix").style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`;
 })();
