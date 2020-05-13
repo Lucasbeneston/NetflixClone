@@ -88,7 +88,7 @@ html {
   display: flex;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: right;
+  background-position: center;
 }
 @media only screen and (max-width: 768px) {
   .modal {
@@ -96,8 +96,9 @@ html {
   }
 }
 .modal__container {
+  position: relative;
   margin-top: -4rem;
-  padding: 7.5vh 0;
+  padding: 7.5vh;
   background: linear-gradient(90deg, black 0%, black 30%, rgba(0, 0, 0, 0.5) 100%);
   padding-left: 4.5rem;
   color: #fff;
@@ -175,6 +176,17 @@ html {
   padding: 2.5vh 0;
   font-size: 1.8rem;
   color: rgba(255, 255, 255, 0.5);
+}
+
+#modal__container-btnClose {
+  position: absolute;
+  right: 7.5vh;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  outline: none;
+  cursor: pointer;
 }
 
 .navigation {
@@ -380,7 +392,7 @@ html {
   padding-top: 3rem;
   padding-bottom: 4rem;
   padding-right: 1rem;
-  height: 52rem;
+  height: 42rem;
   cursor: pointer;
   transition: all 450ms;
   transform: center left;
@@ -398,11 +410,18 @@ html {
 
 #movies-row-netflix, #movies-row-trending, #movies-row-toprated, #movies-row-action, #movies-row-comedy, #movies-row-documentary {
   display: flex;
-  overflow-y: scroll;
+  overflow: scroll;
 }
 
 .movies__container--movie__trending, .movies__container--movie__toprated, .movies__container--movie__genre {
   height: 15rem;
+  padding: 2.5vh 0;
+  padding-right: 2vh;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.movies__container--movie__trending:hover, .movies__container--movie__toprated:hover, .movies__container--movie__genre:hover {
+  padding-right: 3vh;
 }
 
 /*# sourceMappingURL=style.css.map */

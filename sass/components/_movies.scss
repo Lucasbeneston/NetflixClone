@@ -104,7 +104,7 @@
         padding-top: 3rem;
         padding-bottom: 4rem;
         padding-right: 1rem;
-        height: 52rem;
+        height: 42rem;
         cursor: pointer;
         transition: all 450ms;
         transform: center left;
@@ -122,9 +122,16 @@
 
 #movies-row-netflix, #movies-row-trending, #movies-row-toprated, #movies-row-action, #movies-row-comedy, #movies-row-documentary{
   display: flex;
-  overflow-y: scroll;
+  overflow: scroll;
 }
 
 .movies__container--movie__trending, .movies__container--movie__toprated,  .movies__container--movie__genre{
   height: 15rem;
+  padding: 2.5vh 0;
+  padding-right: 2vh;
+  cursor: pointer;
+  transition: 0.5s;
+    &:hover{
+      padding-right: 3vh;
+    }
 }

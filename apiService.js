@@ -36,12 +36,16 @@ export async function fetchByGenreMovies(genre) {
   return movie;
 }
 
-export async function fetchModal(movieId) {
-  const url = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
+export async function fetchModalNetflix(movieId) {
+  const url = `${API_URL}tv/${movieId}?api_key=${API_KEY}`;
   let res = await fetch(url);
   let movie = await res.json();
   return movie;
 }
+
+
+
+
 
 
 
