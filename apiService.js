@@ -69,7 +69,6 @@ export async function fetchModalNetflix(movieId) {
 
 
 
-
 //1
 // export function fetchMovie(movieId, cb) {
 //   // https://api.themoviedb.org/3/movie/550?api_key=7570342a0ddc01d14364f312877712b3

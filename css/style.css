@@ -97,7 +97,6 @@ html {
 }
 .modal__container {
   position: relative;
-  margin-top: -4rem;
   padding: 7.5vh;
   background: linear-gradient(90deg, black 0%, black 30%, rgba(0, 0, 0, 0.5) 100%);
   padding-left: 4.5rem;
