@@ -18,6 +18,7 @@ import Modal from './components/Modal.mjs';
   let movie = await fetchMovie(11);
   document.getElementById("header").innerHTML = Header(movie);
   document.getElementById("header").style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`;
+  console.log(movie)
 })();
 
 
@@ -67,7 +68,6 @@ import Modal from './components/Modal.mjs';
     if(movie.results[i].backdrop_path!== null){
       trendingRow.innerHTML += SectionTrending(movie.results[i]);
     }
-    console.log(movie)
   }
 })();
 
@@ -79,7 +79,6 @@ import Modal from './components/Modal.mjs';
     if(movie.results[i].backdrop_path!== null){
       topratedRow.innerHTML += SectionTopRated(movie.results[i]);
     }
-    console.log(movie)
   }
 })();
 
