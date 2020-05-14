@@ -111,3 +111,13 @@ export function SectionGenreDocumentary(props) {
             `;
     }
 }
+
+
+export function SectionSearch(props) {
+    return `
+        <div class="movies__container--movie__search">
+            <img src="https://image.tmdb.org/t/p/original/${props.poster_path}"
+                class="movies__container--movie-image">
+        </div>
+          `;
+}

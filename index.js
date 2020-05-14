@@ -5,7 +5,7 @@ import { fetchTopRated } from "./apiService.js";
 import { fetchByGenreMovies } from "./apiService.js";
 import { genres } from "./data.js";
 import { fetchModalNetflix } from "./apiService.js";
-// import { fetchList } from "./apiService.js";
+import { fetchSearch } from "./apiService.js";
 
 import Header from "./components/Header.mjs";
 import {SectionNetflix} from "./components/Section.mjs";
@@ -14,6 +14,7 @@ import {SectionTopRated} from "./components/Section.mjs";
 import {SectionGenreAction} from "./components/Section.mjs";
 import {SectionGenreComedy} from "./components/Section.mjs";
 import {SectionGenreDocumentary} from "./components/Section.mjs";
+import { SectionSearch } from "./components/Section.mjs"
 import Modal from './components/Modal.mjs';
 
 
@@ -222,7 +223,53 @@ import Modal from './components/Modal.mjs';
 })();
 
 
-// (async () => {
+
+// // Au click sur l'input, faire disparaitre <div class="container"> ET faire apparaitre <div class="search-container">
+// let searchContainer = document.querySelector('.search-container')
+// let container = document.querySelector('.container')
+// let input = document.querySelector('.navigation__container--left__input')
+
+// let active = true;
+// input.addEventListener('click', () => {
+//   if (active == true){
+//     container.style.display = "none";
+//     searchContainer.style.display = "flex";
+//     searchContainer.style.backgroundColor = "grey";
+//     searchContainer.style.height = "100vh";
+//     searchContainer.style.width = "100vw";
+//     active = false
+//   }
+// })
+
+// searchContainer.addEventListener('click', () => {
+//   if (active == false){
+//     container.style.display = "block";
+//     searchContainer.style.display = "none";
+//     active = true
+//   }
+// })
+
+
+// Afficher les films de BDmovie dans <div class="search-container">
+  (async () => {
+    let movie = await fetchSearch("hello");
+    let searchContainer = document.querySelector('.search-container')
+
+      for (let i = 0; i < movie.results.length; i++){
+        searchContainer.innerHTML += SectionSearch(movie.results[i])
+      }
+  })();
+
+
+// Trier les films selon la recherche dans l'imput (ex : "Cas" > "Cas-a de papel")
+  // Récupérer la valeur de l'imput (string) > Comparer aux éléments du tableau des films (string)
+  // Afficher le resultat du tri
+
+
+
+
+
+  // (async () => {
 //     let movie = await fetchList();
 //     const movieTitleTable = [];
 //     //create a table with all titles
@@ -237,44 +284,6 @@ import Modal from './components/Modal.mjs';
 //       }
 //   }
 // })();
-
-
-// Au click sur l'input, faire disparaitre <div class="container"> ET faire apparaitre <div class="search-container">
-let searchContainer = document.querySelector('.search-container')
-let container = document.querySelector('.container')
-let input = document.querySelector('.navigation__container--left__input')
-
-let active = true;
-input.addEventListener('click', () => {
-  if (active == true){
-    container.style.display = "none";
-    searchContainer.style.display = "block";
-    searchContainer.style.backgroundColor = "grey";
-    searchContainer.style.height = "100vh";
-    searchContainer.style.width = "100vw";
-    active = false
-  }
-})
-
-searchContainer.addEventListener('click', () => {
-  if (active == false){
-    container.style.display = "block";
-    searchContainer.style.display = "none";
-    active = true
-  }
-})
-
-
-// Afficher les films de BDmovie dans <div class="search-container">
-  // Fetch l'api avec la list des films / series
-  // Utiliser l'ID ou name ?
-  // Debounce function pour ne pas afficher trop de films
-
-// Trier les films selon la recherche dans l'imput (ex : "Cas" > "Cas-a de papel")
-  // Récupérer la valeur de l'imput (string) > Comparer aux éléments du tableau des films (string)
-  // Afficher le resultat du tri
-
-
 
 
 

@@ -44,12 +44,12 @@ export async function fetchModalNetflix(movieId) {
 }
 
 
-// export async function fetchList(movieId) {
-//   const url = `${API_URL}list/${movieId}?api_key=${API_KEY}`;
-//   let res = await fetch(url);
-//   let movie = await res.json();
-//   return movie;
-// }
+export async function fetchSearch(search) {
+  const url = `${API_URL}search/multi?api_key=${API_KEY}&query='${search}'`;
+  let res = await fetch(url);
+  let movie = await res.json();
+  return movie;
+}
 
 
 
