@@ -10,7 +10,9 @@ import Header from "./components/Header.mjs";
 import {SectionNetflix} from "./components/Section.mjs";
 import {SectionTrending} from "./components/Section.mjs";
 import {SectionTopRated} from "./components/Section.mjs";
-import {SectionGenre} from "./components/Section.mjs";
+import {SectionGenreAction} from "./components/Section.mjs";
+import {SectionGenreComedy} from "./components/Section.mjs";
+import {SectionGenreDocumentary} from "./components/Section.mjs";
 import Modal from './components/Modal.mjs';
 
 
@@ -28,9 +30,8 @@ import Modal from './components/Modal.mjs';
   let movies = movie.results
 
   for (let i = 0; i < movies.length; i++) {
-    if(movies[i].poster_path!== null){
-      netflixRow.innerHTML += SectionNetflix(movies[i]);
-    }
+
+    netflixRow.innerHTML += SectionNetflix(movies[i]);
 
     let divModalNetflix = document.getElementById('modal-netflix');
     let images = document.getElementsByClassName('movies__container--movie__netflix');
@@ -48,8 +49,6 @@ import Modal from './components/Modal.mjs';
   
       let button = divModalNetflix.querySelector('#modal__container-btnClose');
       button.addEventListener('click', (event) => {
-        // let modalContainer = document.querySelector('.modal__container');
-        // divModalNetflix.removeChild(modalContainer)
         event.preventDefault();
         divModalNetflix.innerHTML = "";
       })
@@ -64,10 +63,9 @@ import Modal from './components/Modal.mjs';
   let trendingRow = document.querySelector('#movies-row-trending');
   let movies = movie.results
 
+  
   for (let i = 0; i < movies.length; i++) {
-    if(movie.results[i].backdrop_path!== null){
-      trendingRow.innerHTML += SectionTrending(movie.results[i]);
-    }
+    trendingRow.innerHTML += SectionTrending(movie.results[i]);
 
     let divModalTrending = document.getElementById('modal-trending');
     let images = document.getElementsByClassName('movies__container--movie__trending');
@@ -85,8 +83,6 @@ import Modal from './components/Modal.mjs';
   
       let button = divModalTrending.querySelector('#modal__container-btnClose');
       button.addEventListener('click', (event) => {
-        // let modalContainer = document.querySelector('.modal__container');
-        // divModalTrending.removeChild(modalContainer)
         event.preventDefault();
         divModalTrending.innerHTML = "";
       })
@@ -104,10 +100,6 @@ import Modal from './components/Modal.mjs';
   for (let i = 0; i < movies.length; i++) {
     topratedRow.innerHTML += SectionTopRated(movies[i]);
 
-    if(movies[i].backdrop_path === null){
-      // Afficher une image par défaut
-    }
-
     let divModalToprated = document.getElementById('modal-toprated');
     let images = document.getElementsByClassName('movies__container--movie__toprated');
     
@@ -124,8 +116,6 @@ import Modal from './components/Modal.mjs';
   
       let button = divModalToprated.querySelector('#modal__container-btnClose');
       button.addEventListener('click', (event) => {
-        // let modalContainer = document.querySelector('.modal__container');
-        // divModalToprated.removeChild(modalContainer)
         event.preventDefault();
         divModalToprated.innerHTML = "";
       })
@@ -141,13 +131,10 @@ import Modal from './components/Modal.mjs';
   let movies = movie.results
 
   for (let i = 0; i < movies.length; i++) {
-    action.innerHTML += SectionGenre(movies[i]);
+    action.innerHTML += SectionGenreAction(movies[i]);
 
-    if(movies[i].backdrop_path === null){
-      // Afficher une image par défaut
-    }
     let divModalAction = document.getElementById('modal-action');
-    let images = document.getElementsByClassName('movies__container--movie__genre');
+    let images = document.getElementsByClassName('movies__container--movie__genreAction');
     
     for (let i = 0; i < images.length; i++) {
     images[i].addEventListener('click', async(event) => {
@@ -162,8 +149,6 @@ import Modal from './components/Modal.mjs';
   
       let button = divModalAction.querySelector('#modal__container-btnClose');
       button.addEventListener('click', (event) => {
-        // let modalContainer = document.querySelector('.modal__container');
-        // divModalToprated.removeChild(modalContainer)
         event.preventDefault();
         divModalAction.innerHTML = "";
       })
@@ -179,14 +164,10 @@ import Modal from './components/Modal.mjs';
   let movies = movie.results
 
   for (let i = 0; i < movies.length; i++) {
-      comedy.innerHTML += SectionGenre(movies[i]);
-
-      if(movies[i].backdrop_path === null){
-        // Afficher une image par défaut
-      }
+      comedy.innerHTML += SectionGenreComedy(movies[i]);
 
       let divModalComedy = document.getElementById('modal-comedy');
-      let images = document.getElementsByClassName('movies__container--movie__genre');
+      let images = document.getElementsByClassName('movies__container--movie__genreComedy');
       
       for (let i = 0; i < images.length; i++) {
       images[i].addEventListener('click', async(event) => {
@@ -201,8 +182,6 @@ import Modal from './components/Modal.mjs';
     
         let button = divModalComedy.querySelector('#modal__container-btnClose');
         button.addEventListener('click', (event) => {
-          // let modalContainer = document.querySelector('.modal__container');
-          // divModalToprated.removeChild(modalContainer)
           event.preventDefault();
           divModalComedy.innerHTML = "";
         })
@@ -214,11 +193,32 @@ import Modal from './components/Modal.mjs';
 
 (async () => {
   let movie = await fetchByGenreMovies(genres.find(genre => genre.name === "Documentary").id);
+  let actionRow = document.querySelector("#movies-row-documentary");
+
   for (let i = 0; i < movie.results.length; i++) {
-    let actionRow = document.querySelector("#movies-row-documentary");
-    if(movie.results[i].backdrop_path!== null){
-      actionRow.innerHTML += SectionGenre(movie.results[i]);
-    }
+    actionRow.innerHTML += SectionGenreDocumentary(movie.results[i]);
+
+    let images = document.getElementsByClassName('movies__container--movie__genreDocumentary');
+    let divModalDocumentary = document.getElementById('modal-documentary');
+    
+    for (let i = 0; i < images.length; i++) {
+    images[i].addEventListener('click', async(event) => {
+      let id = movie.results[i].id;
+      let modalDocumentary = await fetchModalNetflix(id);  
+      event.preventDefault();
+      divModalDocumentary.innerHTML = Modal(modalDocumentary);
+      divModalDocumentary.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${modalDocumentary.backdrop_path})`;
+      divModalDocumentary.style.backgroundSize = 'cover';
+      divModalDocumentary.style.marginTop = '-2vh';
+      divModalDocumentary.style.transition = "0.75s";
+  
+      let button = divModalDocumentary.querySelector('#modal__container-btnClose');
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        divModalDocumentary.innerHTML = "";
+      })
+    })
+  }
   }
 })();
 

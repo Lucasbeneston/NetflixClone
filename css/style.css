@@ -412,14 +412,14 @@ html {
   overflow: scroll;
 }
 
-.movies__container--movie__trending, .movies__container--movie__toprated, .movies__container--movie__genre {
+.movies__container--movie__trending, .movies__container--movie__toprated, .movies__container--movie__genreAction, .movies__container--movie__genreComedy, .movies__container--movie__genreDocumentary {
   height: 15rem;
   padding: 2.5vh 0;
   padding-right: 2vh;
   cursor: pointer;
   transition: 0.5s;
 }
-.movies__container--movie__trending:hover, .movies__container--movie__toprated:hover, .movies__container--movie__genre:hover {
+.movies__container--movie__trending:hover, .movies__container--movie__toprated:hover, .movies__container--movie__genreAction:hover, .movies__container--movie__genreComedy:hover, .movies__container--movie__genreDocumentary:hover {
   padding-right: 3vh;
 }
 
