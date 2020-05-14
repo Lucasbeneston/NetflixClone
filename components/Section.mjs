@@ -116,12 +116,12 @@ export function SectionGenreDocumentary(props) {
 export function SectionSearch(props) {
     if (props.backdrop_path == null){
     return `
-    <div class="movies__container--movie__genreDocumentary">
-    <img
-        src="/img/default2.png"
-        class="movies__container--movie-image"
-    />
-</div>
+        <div class="movies__container--movie__search">
+            <img
+                src="/img/default2.png"
+                class="movies__container--movie-image"
+            />
+        </div>
           `;
     } else {
         return `

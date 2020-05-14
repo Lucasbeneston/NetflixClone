@@ -19,7 +19,7 @@ import Modal from './components/Modal.mjs';
 
 
 (async () => {
-  let movie = await fetchMovie(11);
+  let movie = await fetchMovie(12);
   document.getElementById("header").innerHTML = Header(movie);
   document.getElementById("header").style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`;
 })();
@@ -230,68 +230,34 @@ let container = document.querySelector('.container')
 let input = document.querySelector('.navigation__container--left__input')
 
 let active = true;
-input.addEventListener('click', () => {
-  if (active == true){
+console.log(active)
+
+input.addEventListener('input', async(event) => {
+  let inputValue = event.target.value
+  searchContainer.innerHTML = "";
+
+  if (inputValue.length >= 1){
     container.style.display = "none";
     searchContainer.style.display = "flex";
         (async () => {
-          let movie = await fetchSearch("Hello");
+          let movie = await fetchSearch(inputValue);
+          console.log(inputValue)
           let searchContainer = document.querySelector('.search-container')
             for (let i = 0; i < movie.results.length; i++){
               searchContainer.innerHTML += SectionSearch(movie.results[i])
             }
         })();
     active = false
-  }
-})
-
-searchContainer.addEventListener('click', () => {
-  if (active == false){
+    console.log(active)
+  } else {
     container.style.display = "block";
     searchContainer.style.display = "none";
     searchContainer.innerHTML = "";
     active = true
+    console.log(active)
+
   }
 })
-
-
-
-// Trier les films selon la recherche dans l'imput (ex : "Cas" > "Cas-a de papel")
-  // Récupérer la valeur de l'imput (string) > Comparer aux éléments du tableau des films (string)
-  // Afficher le resultat du tri
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // (() => {
