@@ -20,7 +20,6 @@ import Modal from './components/Modal.mjs';
   let movie = await fetchMovie(11);
   document.getElementById("header").innerHTML = Header(movie);
   document.getElementById("header").style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`;
-  console.log(movie)
 })();
 
 
@@ -62,7 +61,6 @@ import Modal from './components/Modal.mjs';
   let movie = await fetchTrending();
   let trendingRow = document.querySelector('#movies-row-trending');
   let movies = movie.results
-
   
   for (let i = 0; i < movies.length; i++) {
     trendingRow.innerHTML += SectionTrending(movie.results[i]);
@@ -259,12 +257,10 @@ import Modal from './components/Modal.mjs';
 //   };
 //   try {
 //     let movie = fetchMovie(157336, getResponse);
-//     console.log(movie);
 //     document.getElementById("header").innerHTML = Header(movie);
 //     document.getElementById("header").style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`;
 //   }
 //   catch(e){
-//     console.log(e)
 //   }
 
 // })();
@@ -272,7 +268,6 @@ import Modal from './components/Modal.mjs';
 // //2
 // (() => {
 //     let movie = fetchMovie(157336).then(movie => {
-//         console.log(movie)
 //         document.getElementById("header").innerHTML = Header(movie);
 //         document.getElementById("header").style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`;
 //     })

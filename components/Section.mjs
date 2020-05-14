@@ -59,3 +59,5 @@ export function SectionGenreDocumentary(props) {
     </div>
         `;
 }
+
+// "/img/default.jpg"
