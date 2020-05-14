@@ -224,41 +224,36 @@ import Modal from './components/Modal.mjs';
 
 
 
-// // Au click sur l'input, faire disparaitre <div class="container"> ET faire apparaitre <div class="search-container">
-// let searchContainer = document.querySelector('.search-container')
-// let container = document.querySelector('.container')
-// let input = document.querySelector('.navigation__container--left__input')
+// Au click sur l'input, faire disparaitre <div class="container"> ET faire apparaitre <div class="search-container">
+let searchContainer = document.querySelector('.search-container')
+let container = document.querySelector('.container')
+let input = document.querySelector('.navigation__container--left__input')
 
-// let active = true;
-// input.addEventListener('click', () => {
-//   if (active == true){
-//     container.style.display = "none";
-//     searchContainer.style.display = "flex";
-//     searchContainer.style.backgroundColor = "grey";
-//     searchContainer.style.height = "100vh";
-//     searchContainer.style.width = "100vw";
-//     active = false
-//   }
-// })
+let active = true;
+input.addEventListener('click', () => {
+  if (active == true){
+    container.style.display = "none";
+    searchContainer.style.display = "flex";
+        (async () => {
+          let movie = await fetchSearch("Hello");
+          let searchContainer = document.querySelector('.search-container')
+            for (let i = 0; i < movie.results.length; i++){
+              searchContainer.innerHTML += SectionSearch(movie.results[i])
+            }
+        })();
+    active = false
+  }
+})
 
-// searchContainer.addEventListener('click', () => {
-//   if (active == false){
-//     container.style.display = "block";
-//     searchContainer.style.display = "none";
-//     active = true
-//   }
-// })
+searchContainer.addEventListener('click', () => {
+  if (active == false){
+    container.style.display = "block";
+    searchContainer.style.display = "none";
+    searchContainer.innerHTML = "";
+    active = true
+  }
+})
 
-
-// Afficher les films de BDmovie dans <div class="search-container">
-  (async () => {
-    let movie = await fetchSearch("hello");
-    let searchContainer = document.querySelector('.search-container')
-
-      for (let i = 0; i < movie.results.length; i++){
-        searchContainer.innerHTML += SectionSearch(movie.results[i])
-      }
-  })();
 
 
 // Trier les films selon la recherche dans l'imput (ex : "Cas" > "Cas-a de papel")
@@ -269,21 +264,6 @@ import Modal from './components/Modal.mjs';
 
 
 
-  // (async () => {
-//     let movie = await fetchList();
-//     const movieTitleTable = [];
-//     //create a table with all titles
-//     for (let i = 0; i < movie.results.length; i++){
-//       let id = movie.results[i].id;
-
-//       for (let i = 0; i < movieTitleTable.length; i++) {
-//         // console.log('moviesTitle:', movie.results[i].name)
-//         // let contentTable = movie.results[i].name;
-//         movieTitleTable.push(movie.results[i].name)
-//         console.log(movieTitleTable)
-//       }
-//   }
-// })();
 
 
 

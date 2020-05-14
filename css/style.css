@@ -287,10 +287,9 @@ html {
   background-color: #111111;
   width: 100vw;
   height: 100vh;
-  padding-bottom: 4rem;
-  padding-left: 4rem;
-  display: flex;
+  padding: 10vh 5vh;
   flex-wrap: wrap;
+  display: none;
 }
 
 .movies {
@@ -388,10 +387,9 @@ html {
 }
 .movies__container--movie__search {
   min-height: 0;
-  padding-top: 3rem;
-  padding-bottom: 4rem;
   padding-right: 1rem;
-  height: 25rem;
+  padding-top: 1rem;
+  height: 20rem;
   cursor: pointer;
   transition: all 450ms;
   transform: center left;
